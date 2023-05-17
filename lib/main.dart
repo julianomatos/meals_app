@@ -1,8 +1,9 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:meals_app/categories_screen.dart';
-import 'package:meals_app/category_meals_screen.dart';
+import 'package:meals_app/screens/meal_detail_screen.dart';
+import 'screens/categories_screen.dart';
+import 'screens/category_meals_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         
         primarySwatch: Colors.pink,
         //accentColor: Colors.amber,
+        secondaryHeaderColor: Colors.amber,
         
         canvasColor: const Color.fromRGBO(255, 254, 229, 1),
         textTheme: ThemeData.light().textTheme.copyWith(
@@ -33,9 +35,15 @@ class MyApp extends StatelessWidget {
         ),
       ),
       home: const CategoriesScreen(),
+      initialRoute: '/',
+      
       routes: {
-        '/categories-meals': (ctx) =>  CategoryMealScreen(),
-      } ,
+        CategoryMealScreen.routeName: (ctx) =>  CategoryMealScreen(),
+        MealDetailScreen.routeName: (ctx) => const MealDetailScreen(),
+        },
+        // onGenerateRoute: ((settings) {
+        //   return MaterialPageRoute(builder: (ctx) => CategoriesScreen())
+        // }),
     );
   }
 }
