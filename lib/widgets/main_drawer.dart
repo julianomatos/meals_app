@@ -4,7 +4,10 @@ import 'package:meals_app/screens/filters_screen.dart';
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key});
 
-  Widget buildListTile(String title, IconData icon, Function tapHendler) {
+  
+  @override
+  Widget build(BuildContext context) {
+    Widget buildListTile(String title, IconData icon, Function tapHendler) {
     return ListTile(
       leading: Icon(icon, size: 26),
       title: Text(
@@ -15,12 +18,10 @@ class MainDrawer extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
-      onTap: () {},
+      onTap: tapHendler(),
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
     return Drawer(
       child: Column(
         children: <Widget>[
@@ -39,12 +40,12 @@ class MainDrawer extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          buildListTile('Meals', Icons.restaurant, () {
-            Navigator.of(context).pushNamed('/');
-          }),
-          buildListTile('Filters', Icons.settings, () {
-            Navigator.of(context).pushNamed(FilterScreen.routeName);
-          })
+          // buildListTile('Meals', Icons.restaurant, () {
+          //   Navigator.of(context).pushNamed('/');
+          // }),
+          // buildListTile('Filters', Icons.settings, () {
+          //   Navigator.of(context).pushReplacementNamed(FilterScreen.routeName);
+          // })
         ],
       ),
     );

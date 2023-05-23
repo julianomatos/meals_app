@@ -286,7 +286,11 @@ const DUMMY_MEALS =  [
     affordability: Affordability.Affordable,
     complexity: Complexity.Hard,
     imageUrl:
-        'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F5438948.jpg&w=596&h=399&c=sc&poi=face&q=85',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg',
+
+      //'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F5438948.jpg&w=596&h=399&c=sc&poi=face&q=85',
+      // 'https://img.delicious.com.au/XQmtgjpl/del/2021/05/torta-di-mele-apple-cake-151362-2.jpg',
+
     duration: 50,
     ingredients: [
       '3/4 teaspoon unseasoned bread crumbs, or as needed',
@@ -322,7 +326,9 @@ const DUMMY_MEALS =  [
     affordability: Affordability.Affordable,
     complexity: Complexity.Simple,
     imageUrl:
-        'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F2253389.jpg&w=596&h=596&c=sc&poi=face&q=85',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg',
+
+        //'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F2253389.jpg&w=596&h=596&c=sc&poi=face&q=85',
     duration: 25,
     ingredients: [
       '(for 6 servings)',

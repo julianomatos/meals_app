@@ -1,19 +1,22 @@
-// ignore_for_file: use_key_in_widget_constructors
+// ignore_for_file: use_key_in_widget_constructors, camel_case_types
 
 import 'package:flutter/material.dart';
-import 'package:meals_app/dummy_data.dart';
 import 'package:meals_app/widgets/meal_item.dart';
 
 import '../models/meal.dart';
 
-class displayedMealsScreen extends StatefulWidget {
-  static const routeName = '/category-meals';
+class CategoryMealScreen extends StatefulWidget {
+  static const routeName = '/selectedCategory';
+
+  final List<Meal> availableMeals;
+
+  const CategoryMealScreen(this.availableMeals);
 
   @override
-  State<displayedMealsScreen> createState() => _displayedMealsScreenState();
+  State<CategoryMealScreen> createState() => _categoryMealScreen();
 }
 
-class _displayedMealsScreenState extends State<displayedMealsScreen> {
+class _categoryMealScreen extends State<CategoryMealScreen> {
   // final String categoryId;
   late String categoryTitle;
   late List<Meal> displayedMeals;
@@ -26,25 +29,25 @@ class _displayedMealsScreenState extends State<displayedMealsScreen> {
 
   @override
   void didChangeDependencies() {
-    if(!_loadedIniData ){
+    if (!_loadedIniData) {
       final routeArgs =
-        ModalRoute.of(context)?.settings.arguments as Map<String, String>;
+          ModalRoute.of(context)?.settings.arguments as Map<String, String>;
       categoryTitle = routeArgs['title']!;
       final categoryId = routeArgs['id'];
-      displayedMeals = DUMMY_MEALS.where((meal) {
+      displayedMeals = widget.availableMeals.where((meal) {
         return meal.categories.contains(categoryId);
       }).toList();
       _loadedIniData = true;
     }
-    
+
     super.didChangeDependencies();
   }
 
-  void _removeMeal(String mealId) {
-    setState(() {
-      displayedMeals.retainWhere((meal) => meal.id == mealId);
-    });
-  }
+  // void _removeMeal(String mealId) {
+  //   setState(() {
+  //     displayedMeals.retainWhere((meal) => meal.id == mealId);
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +62,7 @@ class _displayedMealsScreenState extends State<displayedMealsScreen> {
               duration: displayedMeals[index].duration,
               complexity: displayedMeals[index].complexity,
               affordability: displayedMeals[index].affordability,
-              removeItem: _removeMeal,
+              //removeItem: _removeMeal,
             );
           },
           itemCount: displayedMeals.length,
