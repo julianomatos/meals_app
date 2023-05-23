@@ -1,9 +1,8 @@
-// ignore_for_file: deprecated_member_use
+// ignore_for_file: deprecated_member_use, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:meals_app/screens/meal_detail_screen.dart';
 import 'package:meals_app/screens/tabs_screen.dart';
-import 'screens/categories_screen.dart';
 import 'screens/category_meals_screen.dart';
 
 void main() => runApp(const MyApp());
@@ -35,18 +34,20 @@ class MyApp extends StatelessWidget {
           //   fontSize: 24 ),
         ),
       ),
-      home: const CategoriesScreen(),
+      //home: const CategoriesScreen(),
       initialRoute: '/',
       
       routes: {
-        '/': (ctx) => const TabsScreen(),
+        '/': (ctx) => TabsScreen(),
         CategoryMealScreen.routeName: (ctx) =>  CategoryMealScreen(),
         MealDetailScreen.routeName: (ctx) => const MealDetailScreen(),
         },
+        
         // onGenerateRoute: ((settings) {
         //   return MaterialPageRoute(builder: (ctx) => CategoriesScreen())
         // }),
     );
   }
+  
 }
 

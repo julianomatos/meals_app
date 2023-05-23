@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../dummy_categories.dart';
+import '../dummy_data.dart';
 
 class MealDetailScreen extends StatelessWidget {
   const MealDetailScreen({super.key});
