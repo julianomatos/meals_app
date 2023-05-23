@@ -13,21 +13,21 @@ class MealDetailScreen extends StatelessWidget {
     );
   }
 
-  Widget buildContainer(Widget child){
+  Widget buildContainer(Widget child) {
     return Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(
-                color: Colors.grey,
-              ),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            margin: const EdgeInsets.all(10),
-            padding: const EdgeInsets.all(10),
-            height: 200,
-            width: 300,
-            child: child,
-        );
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(
+          color: Colors.grey,
+        ),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      margin: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
+      height: 200,
+      width: 300,
+      child: child,
+    );
   }
 
   @override
@@ -50,20 +50,21 @@ class MealDetailScreen extends StatelessWidget {
               ),
             ),
             buildSectionTitle('Ingredients'),
-            buildContainer(ListView.builder(
+            buildContainer(
+              ListView.builder(
                 itemBuilder: (ctx, index) => Card(
-                    color: Theme.of(context).colorScheme.secondary,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 5,
-                        horizontal: 10,
-                      ),
-                      child: Text(selectedMeal.ingredients[index]),
+                  color: Theme.of(context).colorScheme.secondary,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 5,
+                      horizontal: 10,
                     ),
-                    ),
+                    child: Text(selectedMeal.ingredients[index]),
+                  ),
+                ),
                 itemCount: selectedMeal.ingredients.length,
               ),
-             ),
+            ),
             buildSectionTitle('Steps'),
             buildContainer(ListView.builder(
               itemBuilder: (ctx, index) => Column(
@@ -71,8 +72,8 @@ class MealDetailScreen extends StatelessWidget {
                   ListTile(
                     leading: CircleAvatar(
                       child: Text('#${index + 1}'),
-                      ),
-                      title: Text(selectedMeal.steps[index]),
+                    ),
+                    title: Text(selectedMeal.steps[index]),
                   ),
                   const Divider(),
                 ],
@@ -82,6 +83,13 @@ class MealDetailScreen extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+          child: const Icon(
+            Icons.delete,
+          ),
+          onPressed: () {
+            Navigator.of(context).pop(mealId);
+          }),
     );
   }
 }
